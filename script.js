@@ -1,6 +1,6 @@
 "use strict";
 
-//========= Global =========//
+//========= Start =========//
 
 window.addEventListener("load", initApp);
 
@@ -13,11 +13,6 @@ async function initApp() {
 
 //========= posts section =========//
 
-async function updatePosts() {
-  const posts = await getPosts(`${endpoint}southpark.json`);
-  showPosts(posts);
-}
-
 async function getPosts(url) {
   const response = await fetch(url);
   const data = await response.json();
@@ -27,17 +22,19 @@ async function getPosts(url) {
 
 function showPosts(listOfPosts) {
   document.querySelector("#posts").innerHTML = "";
-  getPosts.forEach(showPost);
   for (const post of listOfPosts) {
     showPost(post);
   }
 }
 
 function showPost(urlData) {
-  const html = /*html*/ `
+  const html =
+    /*html*/
+    `
     <article class="grid-item">
-    <img src ="${urlData.image}">
+    <h2>${urlData.name}</h2>
+    <img src ="${urlData.image}" alt="${urlData.name}">
     </article> 
-    `;
+  `;
   document.querySelector("#posts").insertAdjacentHTML("beforeend", html);
 }
