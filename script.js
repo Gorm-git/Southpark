@@ -32,8 +32,8 @@ function showPost(urlData) {
     /*html*/
     `
     <article class="grid-item">
-    <h2>${urlData.name}</h2>
-    <img src ="${urlData.image}" alt="${urlData.name}">
+      <h2 class="name">${urlData.name}</h2>
+      <img class="grid-image" src ="${urlData.image}" alt="${urlData.name}">
     </article> 
   `;
   document.querySelector("#posts").insertAdjacentHTML("beforeend", html);

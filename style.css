@@ -13,3 +13,35 @@ header {
   text-align: center;
   padding: 2em;
 }
+
+/* =============== Grid =============== */
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 30px;
+}
+
+.grid-item {
+  background-color: beige;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.grid-item img {
+  height: 200px;
+  width: auto;
+}
+
+.grid-image {
+  margin: auto;
+}
+
+.name {
+  margin-bottom: 10px;
+}
