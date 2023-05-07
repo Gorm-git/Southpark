@@ -38,3 +38,50 @@ function showPost(urlData) {
   `;
   document.querySelector("#posts").insertAdjacentHTML("beforeend", html);
 }
+
+function showDetails(urlData) {
+  const detailsDialog = document.getElementById("details-dialog");
+  detailsDialog.style.display = "block";
+
+  const name = document.getElementById("name");
+  name.value = urlData.name;
+
+  const nickname = document.getElementById("nickname");
+  nickname.value = urlData.nickname;
+
+  const image = document.getElementById("image");
+  image.src = urlData.image;
+
+  const occupation = document.getElementById("occupation");
+  occupation.value = urlData.occupation;
+
+  const age = document.getElementById("age");
+  age.value = urlData.age;
+
+  const voicedBy = document.getElementById("voicedBy");
+  voicedBy.value = urlData.voicedBy;
+
+  const gender = document.getElementById("gender");
+  gender.value = urlData.gender;
+
+  const religion = document.getElementById("religion");
+  religion.value = urlData.religion;
+
+  const catchPhrase = document.getElementById("catchPhrase");
+  catchPhrase.value = urlData.catchPhrase;
+
+  const hairColor = document.getElementById("hairColor");
+  hairColor.value = urlData.hairColor;
+
+  const schoolGrade = document.getElementById("schoolGrade");
+  schoolGrade.value = urlData.schoolGrade;
+
+  const episodes = document.getElementById("episodes");
+  episodes.value = urlData.episodes;
+
+  const appearances = document.getElementById("appearances");
+  appearances.value = urlData.appearances;
+
+  const firstAppearance = document.getElementById("firstAppearance");
+  firstAppearance.value = urlData.firstAppearance;
+}
