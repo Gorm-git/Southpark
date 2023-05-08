@@ -31,14 +31,60 @@ function showPost(urlData) {
   const html = `
     <article class="grid-item">
       <h2 class="name">${urlData.name}</h2>
-      <img class="grid-image" src ="${urlData.image}" alt="${urlData.name}">
-      <button class="details-button" data-character='${JSON.stringify(
-        urlData
-      )}'>Details</button>
-    </article> 
+      <img class="grid-image" src="${urlData.image}" alt="${urlData.name}">
+      <button onclick="showDetails('${urlData.name}', '${urlData.nickname}', '${urlData.image}', '${urlData.occupation}', '${urlData.age}', '${urlData.voicedBy}', '${urlData.gender}', '${urlData.religion}', '${urlData.catchPhrase}', '${urlData.hairColor}', '${urlData.schoolGrade}', '${urlData.episodes}', '${urlData.appearances}', '${urlData.firstAppearance}')">Details</button>
+    </article>
   `;
   document.querySelector("#posts").insertAdjacentHTML("beforeend", html);
+}
 
-  const button = document.querySelector(".details-button:last-of-type");
-  button.addEventListener("click", openModal);
+function showDetails(
+  name,
+  nickname,
+  image,
+  occupation,
+  age,
+  voicedBy,
+  gender,
+  religion,
+  catchPhrase,
+  hairColor,
+  schoolGrade,
+  episodes,
+  appearances,
+  firstAppearance
+) {
+  const dialog = document.createElement("dialog");
+  const html = `
+    
+      <h2>${name}</h2>
+      <ul>
+        <li><strong>Nickname:</strong> ${nickname}</li>
+        <li><strong>Image:</strong> <img src="${image}" alt="${name}"></li>
+        <li><strong>Occupation:</strong> ${occupation}</li>
+        <li><strong>Age:</strong> ${age}</li>
+        <li><strong>Voiced By:</strong> ${voicedBy}</li>
+        <li><strong>Gender:</strong> ${gender}</li>
+        <li><strong>Religion:</strong> ${religion}</li>
+        <li><strong>Catchphrase:</strong> ${catchPhrase}</li>
+        <li><strong>Hair Color:</strong> ${hairColor}</li>
+        <li><strong>School Grade:</strong> ${schoolGrade}</li>
+        <li><strong>Episodes:</strong> ${episodes}</li>
+        <li><strong>Appearances:</strong> ${appearances}</li>
+        <li><strong>First Appearance:</strong> ${firstAppearance}</li>
+      </ul>
+      <button id ="close-dialog">Close</button>
+  `;
+  dialog.innerHTML = html;
+  document.getElementById("dialog").appendChild(dialog);
+  dialog.showModal();
+
+  const closeBtn = dialog.querySelector("#close-dialog");
+  closeBtn.addEventListener("click", () => {
+    dialog.close();
+  });
+}
+
+function closeModal() {
+  document.querySelector(".modal").remove();
 }
