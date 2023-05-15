@@ -80,7 +80,7 @@ function showDetails(
   dialog.showModal();
 
   const closeBtn = dialog.querySelector("#close-dialog");
-  closeBtn.addEventListener("click", () => {
+  closeBtn.addEventListener("click", function () {
     dialog.close();
   });
 }
